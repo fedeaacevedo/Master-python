@@ -4,4 +4,8 @@
 
 {% block content%}
 <h1>Esta es la pagina de pruebas.Probando la herencia de plantillas</h1>
+
+{% load filters %}
+
+{{"Federico Acevedo WEB"|saludo|safe}}
 {% endblock %}

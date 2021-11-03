@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-
+from miapp.models import Article, Category
 # Create your views here.
 
 nombre = 'Federico Acevedo'
@@ -24,3 +24,15 @@ def pagina(request):
 
 def contacto(request):
     return render(request, 'contacto.html')
+
+
+def crear_articulo(request, title, content, public):
+    articulo = Article(
+        title = title,
+        content = content,
+        public = public
+    )
+
+    articulo.save()
+
+    return HttpResponse(f"Usuario creado: <strong>{articulo.title}</strong> - {articulo.content}")    
