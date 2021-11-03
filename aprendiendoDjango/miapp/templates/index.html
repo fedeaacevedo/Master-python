@@ -1,0 +1,35 @@
+{% extends 'layout.html' %} 
+{% block title%}
+    {{title}} 
+{% endblock %}
+
+{% block content %}
+
+{% comment "Esto sirve para ponerle titulo al comentario" %}
+    <h1>Hola, esto es un comentario en DJANGO</h1>
+{% endcomment %}
+
+<h1 class="title">{{title}}</h1>
+
+<p>{{mi_variable}}</p>
+
+{% if nombre and nombre == 'Federico Acevedo' %}
+    <p>{{nombre}}</p>
+{% else %}
+    <strong>El nombre no existe o no coincide </strong>    
+{% endif %}
+
+<h3>Lista de lenguajes</h3>
+<ul>
+    {% for lenguaje in lenguajes%}
+        <li> {{forloop.counter}}. {{lenguaje}}  </li> 
+    {% empty %}    
+        <p>No hay lenguajes que mostrar</p>
+    {% endfor %}     
+</ul>
+
+
+
+{% include 'fecha-actual.html'  with saludo="Hola mundo desde plantilla" %}
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} <!--Titulo de cada pagina--> {% endblock %}| Federico Acevedo</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!--Cabecera de la pagina-->
+    <header>
+        <div id="logotipo">
+            <!--Logo Django-->
+            <img src="{% static 'image/logo.png' %}">
+            <h1>Sitio web con Django</h1>
+        </div>
+    </header>
+
+    <!--Menu de navegacion-->
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="/hola">Hola Mundo</a>
+            </li>
+            <li>
+                <a href="/pagina">Pagina de pruebas</a>
+            </li>
+            <li>
+                <a href="/contacto">Contacto</a>
+            </li>
+        </ul>   
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+    </div>
+
+  
+
+    <div id="content">
+        <div class="box">
+         
+            {% block content %}
+            <!--Contenido de cada pagina-->
+            {% endblock %}
+        </div>
+      
+
+    </div>
+    
+
+
+    <footer>
+        Master en Python &copy; Federico Acevedo - {% now "Y" %}
+    </footer>
+</body>
+</html>
